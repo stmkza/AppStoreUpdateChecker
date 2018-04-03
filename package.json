@@ -1,0 +1,26 @@
+{
+  "name": "appstore-checker",
+  "version": "1.0.0",
+  "description": "Check updates from AppStore",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stmkza/AppStoreUpdateChecker.git"
+  },
+  "keywords": [
+    "AppStore",
+    "iOS"
+  ],
+  "author": "stmkza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stmkza/AppStoreUpdateChecker/issues"
+  },
+  "homepage": "https://github.com/stmkza/AppStoreUpdateChecker#readme",
+  "dependencies": {
+    "cheerio-httpcli": "*"
+  }
+}
