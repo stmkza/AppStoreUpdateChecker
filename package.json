@@ -19,8 +19,5 @@
   "bugs": {
     "url": "https://github.com/stmkza/AppStoreUpdateChecker/issues"
   },
-  "homepage": "https://github.com/stmkza/AppStoreUpdateChecker#readme",
-  "dependencies": {
-    "cheerio-httpcli": "*"
-  }
+  "homepage": "https://github.com/stmkza/AppStoreUpdateChecker#readme"
 }

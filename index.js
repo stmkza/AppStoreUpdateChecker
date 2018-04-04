@@ -6,19 +6,27 @@ const appId = '626776655';
 // Store Country
 const country = 'jp';
 
-// Latest Version
-const latestVersion = '5.7.1';
-
 // Check Interval
 const checkInterval = 5000;
 
-const fetchUrl = 'https://linkmaker.itunes.apple.com/ja-jp/details/' + appId + '?country=' + country;
-const client = require('cheerio-httpcli');
+const fetchUrl = 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch?country=' + country + '&entity=software&term=' + appId
+
+const http = require('http');
+
+var latestVersion = '';
+
 setInterval(function(){
-    client.fetch(fetchUrl, {}, function(error, $, response){
-        const nowVersion = $('.version').text().replace('Version: ', '');
-        if(latestVersion != nowVersion) {
-            console.log('[Update] ' + latestVersion + ' => ' + nowVersion);
-        }
+    http.get(fetchUrl, function(res){
+        let data = '';
+        res.on('data', function(c){data += c;});
+        res.on('end', function(){
+            res = JSON.parse(data);
+            if(res.results[0].version != latestVersion) {
+                latestVersion = res.results[0].version;
+                console.log('Latest Version: ' + latestVersion);
+            }
+        });
+    }).on('error', function(ev){
+        console.log(e.message);
     });
 }, checkInterval);
