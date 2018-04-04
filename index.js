@@ -7,7 +7,7 @@ const appId = '626776655';
 const country = 'jp';
 
 // Check Interval
-const checkInterval = 3000;
+const checkInterval = 1000;
 
 const fetchUrl = 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa/wsSearch?country=' + country + '&entity=software&term=' + appId
 
@@ -33,7 +33,7 @@ setInterval(function(){
             }
         });
     }).on('error', function(ev){
-        console.log(e.message);
+        console.log(ev.message);
     });
 }, checkInterval);
 
